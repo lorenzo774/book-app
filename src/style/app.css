@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header,
+footer {
+    text-align: center;
+    padding: 30px;
+}
+
+footer {
+    font-size: 1.4rem;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    padding: 30px;
+    max-width: 800px;
+}
+
+main,
+textarea,
+input {
+    font-size: 1.5rem;
+}
+
+ul {
+    list-style: none;
+}
+
+.book {
+    border: 2px solid black;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+.book * {
+    margin-top: 10px;
+}
+
+.book-form {
+    border: 2px solid black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.book-form input {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.book-form label {
+    width: 100%;
+}
+.book-form button {
+    margin: 10px;
+    width: min-content;
+    padding: 10px 50px;
+}
