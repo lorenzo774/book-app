@@ -9,20 +9,23 @@ type BookListProps = {
  * List of all books
  */
 const BookList = ({ onBookDelete, books }: BookListProps) => (
-    <ul>
-        {books[0] ? (
-            books.map(({ id, title, year, author, description }, index) => (
-                <li key={index}>
-                    <Book
-                        onDelete={onBookDelete}
-                        book={{ id, title, year, author, description }}
-                    />
-                </li>
-            ))
-        ) : (
-            <p>😔 No results</p>
-        )}
-    </ul>
+    <>
+        <h2>Books</h2>
+        <ul>
+            {books[0] ? (
+                books.map(({ id, title, year, author, description }, index) => (
+                    <li key={index}>
+                        <Book
+                            onDelete={onBookDelete}
+                            book={{ id, title, year, author, description }}
+                        />
+                    </li>
+                ))
+            ) : (
+                <p>😔 No results</p>
+            )}
+        </ul>
+    </>
 );
 
 export default BookList;

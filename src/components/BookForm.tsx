@@ -36,41 +36,57 @@ const BookForm = function ({ handleClick }: BookFormProps) {
     return (
         <form
             onSubmit={(e) => handleSubmit(e)}
-            className="book-form"
+            className="border p-4 mb-5"
         >
-            <label htmlFor="title">Title</label>
-            <input
-                required
-                name="title"
-                type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-            />
-            <label htmlFor="year">Year</label>
-            <input
-                required
-                name="year"
-                type="number"
-                value={year || ""}
-                onChange={(e) => setYear(Number(e.target.value))}
-            />
-            <label htmlFor="author">Author</label>
-            <input
-                required
-                name="author"
-                type="text"
-                value={author}
-                onChange={(e) => setAuthor(e.target.value)}
-            />
-            <label htmlFor="description">Description</label>
-            <textarea
-                rows={10}
-                required
-                name="author"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-            />
-            <button type="submit">Add</button>
+            <div className="form-group">
+                <label htmlFor="title">Title</label>
+                <input
+                    className="form-control"
+                    required
+                    name="title"
+                    type="text"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="year">Year</label>
+                <input
+                    className="form-control"
+                    required
+                    name="year"
+                    type="number"
+                    value={year || ""}
+                    onChange={(e) => setYear(Number(e.target.value))}
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="author">Author</label>
+                <input
+                    className="form-control"
+                    required
+                    name="author"
+                    type="text"
+                    value={author}
+                    onChange={(e) => setAuthor(e.target.value)}
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="description">Description</label>
+                <textarea
+                    className="form-control"
+                    required
+                    name="author"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                />
+            </div>
+            <button
+                className="w-100 btn btn-primary"
+                type="submit"
+            >
+                Add
+            </button>
         </form>
     );
 };

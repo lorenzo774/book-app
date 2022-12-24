@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BookForm from "./components/BookForm";
 import BookList from "./components/BookList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import "./style/app.css";
 
 const App = () => {
@@ -32,17 +34,24 @@ const App = () => {
         },
     ]);
 
+    useEffect(() => {
+        console.table(books);
+    }, [books]);
+
     const addBook = function (
         title: string,
         year: number,
         author: string,
         description: string
     ) {
-        setIdCounter((prev) => prev + 1);
-        setBooks([
-            ...books,
-            { id: idCounter, title, year, author, description },
-        ]);
+        setIdCounter((prev) => {
+            const newId = prev + 1;
+            setBooks((prev) => [
+                ...prev,
+                { id: newId, title, year, author, description },
+            ]);
+            return newId;
+        });
     };
 
     const deleteBook = function (id: number) {
@@ -53,15 +62,18 @@ const App = () => {
             <header>
                 <h1>Book app</h1>
             </header>
-            <main>
+            <main className="p-3">
                 <BookForm handleClick={addBook.bind(this)} />
                 <BookList
                     onBookDelete={deleteBook}
                     books={books}
                 />
             </main>
-            <footer>
-                <p>By Lorenzo774</p>
+            <footer className="mb-5">
+                <span>By Lorenzo774 </span>
+                <a href="https://github.com/lorenzo774">
+                    <FontAwesomeIcon icon={faGithub} />
+                </a>
             </footer>
         </div>
     );

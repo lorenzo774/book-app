@@ -22,11 +22,14 @@ export const Book = function ({
     book: { id, title, year, author, description },
 }: BookProps) {
     return (
-        <div className="book">
-            <FontAwesomeIcon
-                onClick={() => onDelete(id)}
-                icon={faTrash}
-            />
+        <div className="book card p-4 mb-4 ">
+            <div className="manage">
+                <FontAwesomeIcon
+                    className="btn btn-danger btn-md"
+                    onClick={() => onDelete(id)}
+                    icon={faTrash}
+                />
+            </div>
             <h3>{title}</h3>
             <p>Author: {author}</p>
             <p>Year: {year}</p>
