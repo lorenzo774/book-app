@@ -63,3 +63,6 @@ ul {
     width: min-content;
     padding: 10px 50px;
 }
+.book-form textarea {
+    max-width: 100%;
+}

@@ -64,7 +64,6 @@ const BookForm = function ({ handleClick }: BookFormProps) {
             />
             <label htmlFor="description">Description</label>
             <textarea
-                cols={50}
                 rows={10}
                 required
                 name="author"
