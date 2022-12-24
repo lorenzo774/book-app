@@ -6,7 +6,7 @@ Simple book app made with React
 
 ## Installation
 
-1. Clone and install all the dependecies
+1. Clone and install all the dependencies
 
 ```
 git clone https://github.com/lorenzo774/book-app.git
