@@ -4,8 +4,10 @@ import BookList from "./components/BookList";
 import "./style/app.css";
 
 const App = () => {
+    const [idCounter, setIdCounter] = useState(3); // Just an example
     const [books, setBooks] = useState([
         {
+            id: 1,
             title: "book 1",
             year: 2010,
             author: "mario rossi",
@@ -13,6 +15,7 @@ const App = () => {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, fugit rerum optio repellendus, earum odit nulla illum, molestias nostrum doloremque ducimus dolorem corporis illo vel numquam consequatur impedit. Velit, dignissimos.`,
         },
         {
+            id: 2,
             title: "book 2",
             year: 2020,
             author: "giocamo giovanni",
@@ -20,6 +23,7 @@ const App = () => {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, fugit rerum optio repellendus, earum odit nulla illum, molestias nostrum doloremque ducimus dolorem corporis illo vel numquam consequatur impedit. Velit, dignissimos.`,
         },
         {
+            id: 3,
             title: "book 3",
             year: 2021,
             author: "mario luigi",
@@ -34,9 +38,16 @@ const App = () => {
         author: string,
         description: string
     ) {
-        setBooks([...books, { title, year, author, description }]);
+        setIdCounter((prev) => prev + 1);
+        setBooks([
+            ...books,
+            { id: idCounter, title, year, author, description },
+        ]);
     };
 
+    const deleteBook = function (id: number) {
+        setBooks((prev) => prev.filter((book) => book.id !== id));
+    };
     return (
         <div className="App">
             <header>
@@ -44,7 +55,10 @@ const App = () => {
             </header>
             <main>
                 <BookForm handleClick={addBook.bind(this)} />
-                <BookList books={books} />
+                <BookList
+                    onBookDelete={deleteBook}
+                    books={books}
+                />
             </main>
             <footer>
                 <p>By Lorenzo774</p>

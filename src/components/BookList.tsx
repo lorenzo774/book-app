@@ -1,22 +1,21 @@
-import { Book, BookProps } from "./Book";
+import { Book, BookType } from "./Book";
 
 type BookListProps = {
-    books: BookProps[];
+    onBookDelete: (id: number) => void;
+    books: BookType[];
 };
 
 /**
  * List of all books
  */
-const BookList = ({ books }: BookListProps) => (
+const BookList = ({ onBookDelete, books }: BookListProps) => (
     <ul>
         {books[0] ? (
-            books.map(({ title, year, author, description }, index) => (
+            books.map(({ id, title, year, author, description }, index) => (
                 <li key={index}>
                     <Book
-                        title={title}
-                        year={year}
-                        author={author}
-                        description={description}
+                        onDelete={onBookDelete}
+                        book={{ id, title, year, author, description }}
                     />
                 </li>
             ))
